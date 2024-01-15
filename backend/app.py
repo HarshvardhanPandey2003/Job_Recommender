@@ -12,7 +12,7 @@ similarity = pickle.load(open('similarity.pkl', 'rb'))
 def recommendation(Position):
     try:
         indx = df[df['PositionT'] == Position].index[0]
-        distances = sorted(list(enumerate(similarity[indx])), key=lambda x: x[1], reverse=True)[1:10]
+        distances = sorted(list(enumerate(similarity[indx])), key=lambda x: x[1], reverse=True)[0:10]
         # Now we have the indexes of common items. So we can decide what we want for Recommendations
         jobs = [df.iloc[i[0]]['Title'] for i in distances]
         return jobs
