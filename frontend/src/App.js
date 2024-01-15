@@ -20,24 +20,32 @@ const jobTitleSuggestions = [
   'Receptionist',
 ];
 
-function App() {
+const stateOptions = ['California', 'Florida', 'Pennsylvania', 'Ohio'];
+
+const App = () => {
   const [position, setPosition] = useState('');
+  const [state, setState] = useState('');
   const [jobs, setJobs] = useState([]);
 
   const handlePositionChange = (e) => {
     setPosition(e.target.value);
   };
 
+  const handleStateChange = (e) => {
+    setState(e.target.value);
+  };
+
   const handleRecommendation = async () => {
     try {
-      console.log('Selected Position:', position); // For debugging
+      const combinedString = `${position} ${state}`.trim(); // Combine position and state with a space in between
+      console.log('Selected Position and State:', combinedString); // For debugging
 
       const response = await fetch('http://localhost:5000/recommend', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ Position: position }),
+        body: JSON.stringify({ Position: combinedString }),
       });
 
       if (!response.ok) {
@@ -49,6 +57,22 @@ function App() {
     } catch (error) {
       console.error('Error fetching data:', error.message);
     }
+  };
+
+  const formatRecommendations = (jobs) => {
+    if (jobs.length === 0) {
+      return <strong style={{ fontSize: '1.2em' }}>No Results Found</strong>;
+    }
+
+    return (
+      <ul>
+        {jobs.map((job, index) => (
+          <li key={index}>
+            <strong>{index + 1}. </strong> {job}
+          </li>
+        ))}
+      </ul>
+    );
   };
 
   return (
@@ -65,19 +89,24 @@ function App() {
           ))}
         </select>
       </label>
+      <label>
+        Select or enter your state:
+        <select value={state} onChange={handleStateChange}>
+          <option value="" disabled>Select a state</option>
+          {stateOptions.map((state, index) => (
+            <option key={index} value={state}>
+              {state}
+            </option>
+          ))}
+        </select>
+      </label>
       <button onClick={handleRecommendation}>Get Recommendations</button>
-      {jobs.length > 0 && (
-        <div className="recommended-jobs">
-          <h2>Recommended Jobs:</h2>
-          <ul>
-            {jobs.map((job, index) => (
-              <li key={index}>{job}</li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div className="recommended-jobs">
+        <h2>Recommended Jobs:</h2>
+        {formatRecommendations(jobs)}
+      </div>
     </div>
   );
-}
+};
 
 export default App;

@@ -1,66 +1,69 @@
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f8f8;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 .container {
-  text-align: center;
+  max-width: 800px; /* Increased max-width */
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
 }
 
 h1 {
+  text-align: center;
   color: #333;
-  margin-bottom: 20px;
 }
 
 label {
   display: block;
   margin-bottom: 10px;
-  font-size: 18px;
+  font-weight: bold;
 }
 
-input {
+select,
+button {
+  width: 100%;
   padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
   font-size: 16px;
-  width: 300px;
 }
 
 button {
   background-color: #007bff;
   color: #fff;
-  padding: 12px 20px;
-  font-size: 18px;
-  border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 button:hover {
   background-color: #0056b3;
 }
 
+.recommended-jobs {
+  margin-top: 20px;
+}
+
 ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
 }
 
 li {
+  margin-bottom: 8px;
   font-size: 16px;
-  margin-bottom: 10px;
 }
 
-/* Additional styling for recommended jobs section */
-.recommended-jobs {
-  margin-top: 30px;
+/* Optional: Add some styling for the disabled options */
+select:disabled {
+  color: #aaa;
 }
 
-.recommended-jobs h2 {
-  color: #333;
+/* Optional: Add some styling for the placeholder options */
+option:disabled {
+  color: #aaa;
 }
 
-/* Add more styles as needed */
+/* Optional: Add some styling for the selected options */
+option:checked {
+  background-color: #007bff;
+  color: #fff;
+}
