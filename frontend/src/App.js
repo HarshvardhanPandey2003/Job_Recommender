@@ -20,7 +20,7 @@ const jobTitleSuggestions = [
   'Receptionist',
 ];
 
-const stateOptions = ['California', 'Florida', 'Pennsylvania', 'Ohio'];
+const stateOptions = ['California', 'Florida', 'Pennsylvania', 'Ohio','Texas','Illinois','Washington','New York'];
 
 const App = () => {
   const [position, setPosition] = useState('');
