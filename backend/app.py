@@ -9,22 +9,39 @@ CORS(app)
 df = pickle.load(open('df.pkl', 'rb'))
 similarity = pickle.load(open('similarity.pkl', 'rb'))
 
-def recommendation(Position):
+def recommendation(Position, State):
     try:
-        indx = df[df['PositionT'] == Position].index[0]
-        distances = sorted(list(enumerate(similarity[indx])), key=lambda x: x[1], reverse=True)[0:10]
-        # Now we have the indexes of common items. So we can decide what we want for Recommendations
-        jobs = [df.iloc[i[0]]['Title'] for i in distances]
-        return jobs
+        # Filter indices based on the specified state
+        state_indices = df[df['State.NameT'] == State].index
+        # Save of the Indexes of States 
+        indx = df[df['Position'] == Position].index[0]
+        distances = sorted(list(enumerate(similarity[indx])), key=lambda x: x[1], reverse=True)[:10]
+
+        # Get recommendations for the specified state
+        state_filtered_recommendations = []
+        for i in distances:
+            index= i[0]
+            if index in state_indices:
+                job_title = df.iloc[index]['Title']
+                state_filtered_recommendations.append((job_title))
+        filtered_recommendations=state_filtered_recommendations[:10]
+
+        return filtered_recommendations
     except IndexError:
-        return []  # Return an empty list if no results are found
+        return []
 
 @app.route('/recommend', methods=['POST'])
 def recommend_jobs():
     data = request.get_json()
     Position = data.get('Position', '')
-    print(f"Received Position: {Position}")
-    jobs = recommendation(Position)
+    State = data.get('State', '')
+    print(f"Received Position: {Position}, State: {State}")
+    
+    jobs = recommendation(Position, State)
+    
+    # Sort recommendations by similarity score
+    jobs = sorted(jobs, key=lambda x: x[1], reverse=True)
+    
     return jsonify({'jobs': jobs})
 
 

@@ -37,19 +37,18 @@ const App = () => {
 
   const handleRecommendation = async () => {
     try {
-      const combinedString = `${position} ${state}`.trim(); // Combine position and state with a space in between
-      console.log('Selected Position and State:', combinedString); // For debugging
+      console.log('Selected Position and State:', position, state); // For debugging
 
       const response = await fetch('http://localhost:5000/recommend', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ Position: combinedString }),
+        body: JSON.stringify({ Position: position, State: state }),
       });
 
       if (!response.ok) {
-        throw new Error('Position not provided');
+        throw new Error('Error fetching recommendations');
       }
 
       const data = await response.json();
