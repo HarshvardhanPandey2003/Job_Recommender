@@ -20,7 +20,7 @@ A simple web application that provides job recommendations based on the input of
 
 Make sure you have the following installed before running the application:
 
-- Python 3.x
+- Python 3.11
 - Node.js
 - npm (Node Package Manager)
 
