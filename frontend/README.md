@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+Sure, here's a GitHub description for your app:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+# Job Recommender App
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+Job Recommender App is a web application designed to help users find job opportunities tailored to their state and job title. The application uses Flask for the backend and React for the frontend. Leveraging Natural Language Processing (NLP), the app provides personalized job recommendations based on user input.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Personalized Job Recommendations**: Get job suggestions tailored to your state and job title using advanced NLP techniques.
+- **User-friendly Interface**: Intuitive and responsive interface built with React.
+- **Real-time Search**: Instant job search results with dynamic filtering and sorting options.
+- **Secure and Scalable**: Secure user data management and scalable architecture with Flask.
 
-### `npm test`
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Backend**: Flask
+- **Frontend**: React
+- **Natural Language Processing**: NLP algorithms for job recommendations
+- **API Integration**: Job data fetched from external job listing APIs
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/your-username/job-recommender-app.git
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Backend Setup**:
+    - Navigate to the backend directory:
+      ```bash
+      cd job-recommender-app/backend
+      ```
+    - Create a virtual environment and activate it:
+      ```bash
+      python -m venv venv
+      source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+      ```
+    - Install the required packages:
+      ```bash
+      pip install -r requirements.txt
+      ```
+    - Run the Flask app:
+      ```bash
+      flask run
+      ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Frontend Setup**:
+    - Navigate to the frontend directory:
+      ```bash
+      cd ../frontend
+      ```
+    - Install the required packages:
+      ```bash
+      npm install
+      ```
+    - Start the React app:
+      ```bash
+      npm start
+      ```
 
-### `npm run eject`
+## Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Open your browser and go to `http://localhost:3000`.
+2. Enter your state and job title in the search fields.
+3. Get personalized job recommendations and explore various job opportunities.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Contributions are welcome! Please fork the repository and submit a pull request for any feature additions or bug fixes.
