@@ -1,7 +1,3 @@
-Sure, here's a GitHub description for your app:
-
----
-
 # Job Recommender App
 
 ## Overview
